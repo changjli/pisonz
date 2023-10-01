@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -10,11 +13,44 @@ class LoginController extends Controller
         return view('admin/login');
     }
 
-    public function register(){
+    public function register(Request $request)
+    {
+        $rules = [
+            'Email' => 'required|unique:users|email:dns',
+            'Password' => 'required|min:6|max:255|same:passwordConfirmation',
+        ];
+
+        $validated = $request->validate($rules); 
+
+        $validated['Password'] = Hash::make($validated['Password']);
+
+        User::create($validated);
         
+        return redirect('/admin/login')->with('register', 'success');
     }
 
-    public function login(){
-        
+    public function login(Request $request){
+        $rules = [
+            'email' => 'required|email:dns', 
+            'password' => 'required|min:6|max:255', 
+        ];
+
+        $validated = $request->validate($rules); 
+
+        if(Auth::attempt($validated)){
+            $request->session()->regenerate(); 
+
+            return redirect()->intended('/admin');
+        }
+    }
+
+    public function logout(Request $request){
+        Auth::logout(); 
+
+        $request->session()->invalidate(); 
+
+        $request->session()->regenerateToken(); 
+
+        return redirect('/admin/login');
     }
 }

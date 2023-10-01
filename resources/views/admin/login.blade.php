@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="">
+    <form action="/admin/login" method="POST">
         @csrf
         <h1>Login</h1>
         <div>
@@ -18,18 +18,24 @@
             <label for="">password</label>
             <input type="text">
         </div>
+        <div>
+            <button>Login</button>
+        </div>
     </form>
 
-    <form action="" method="POST">
+    <form action="/admin/register" method="POST">
         @csrf
         <h1>Register</h1>
         <div>
             <label for="">email</label>
-            <input type="text">
+            <input type="text" name="email">
         </div>
         <div>
             <label for="">password</label>
-            <input type="text">
+            <input type="text" name="password">
+        </div>
+        <div>
+            <button>Register</button>
         </div>
     </form>
 </body>
