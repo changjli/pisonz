@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,11 +20,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// admin 
+// admin login
+Route::get('/admin/login', [LoginController::class, 'index'])->middleware('guest');
 
-//login
-Route::get('/admin/login', [LoginController::class, 'index']);
+Route::post('/admin/login', [LoginController::class, 'login'])->middleware('guest');
 
-Route::post('/admin/register', [LoginController::class, 'register']);
+Route::post('/admin/logout', [LoginController::class, 'logout'])->middleware('auth');
 
-Route::post('/admin/login', [LoginController::class, 'login']);
+// Route::post('/admin/register', [LoginController::class, 'register'])->middleware('guest');
+
+// admin transaction
+Route::resource('/admin/transaction', TransactionController::class)->middleware('auth');
+
+// admin user (super admin)
+Route::resource('/admin/user', UserController::class);

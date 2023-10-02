@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <div>this is transaction</div>
+    <div>{{$user->name}}</div>
 </body>
 </html>

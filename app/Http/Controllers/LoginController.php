@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaction;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -17,16 +18,21 @@ class LoginController extends Controller
     public function register(Request $request)
     {
         $rules = [
+            'name' => 'required',
             'email' => 'required|unique:users|email:dns',
-            'password' => 'required|min:6|max:255|same:passwordConfirmation',
+            'password' => 'required|min:6|max:255',
         ];
         $validated = $request->validate($rules); 
 
         $validated['password'] = Hash::make($validated['password']);
+        $validated['status'] = 'admin';
 
-        User::create($validated);
+        if(User::create($validated)){
+            return redirect('/admin/login')->with('success', 'register success');
+        }else{
+            return redirect('/admin/login')->with('error', 'register error');
+        }
 
-        return redirect('/admin/login')->with('register', 'success');
     }
 
     public function login(Request $request){
@@ -39,8 +45,11 @@ class LoginController extends Controller
         if(Auth::attempt($validated)){
             $request->session()->regenerate(); 
 
-            return redirect()->intended('/admin');
+            return redirect()->intended('/admin/transaction');
         }
+
+        return back()->with('error', 'login failed');
+
     }
 
     public function logout(Request $request){
