@@ -7,6 +7,12 @@
     <title>Document</title>
 </head>
 <body>
+    @if (session()->has('success'))
+        <div>{{session('success')}}</div>
+    @endif
+    @if (session()->has('success'))
+        <div>{{session('success')}}</div>
+    @endif
     <form action="/admin/login" method="POST">
         @csrf
         <h1>Login</h1>

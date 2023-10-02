@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -16,16 +17,15 @@ class LoginController extends Controller
     public function register(Request $request)
     {
         $rules = [
-            'Email' => 'required|unique:users|email:dns',
-            'Password' => 'required|min:6|max:255|same:passwordConfirmation',
+            'email' => 'required|unique:users|email:dns',
+            'password' => 'required|min:6|max:255|same:passwordConfirmation',
         ];
-
         $validated = $request->validate($rules); 
 
-        $validated['Password'] = Hash::make($validated['Password']);
+        $validated['password'] = Hash::make($validated['password']);
 
         User::create($validated);
-        
+
         return redirect('/admin/login')->with('register', 'success');
     }
 
@@ -34,9 +34,8 @@ class LoginController extends Controller
             'email' => 'required|email:dns', 
             'password' => 'required|min:6|max:255', 
         ];
-
         $validated = $request->validate($rules); 
-
+        
         if(Auth::attempt($validated)){
             $request->session()->regenerate(); 
 
