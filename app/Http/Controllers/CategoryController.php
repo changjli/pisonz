@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
+use Illuminate\Support\Facades\DB;
+use App\Models\Game;
 
 class CategoryController extends Controller
 {
@@ -13,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::paginate(5);
+        return view('categories.index')->with('categories', $categories);
     }
 
     /**
@@ -21,7 +24,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $games = Game::all();
+        return view('categories.create', compact('games'));
     }
 
     /**
@@ -29,15 +33,25 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'game_id' => 'required',
+        ], [
+            'game_id.required' => 'Game must be selected'
+        ]);
+
+        $input = $request->all();
+        Category::create($input);
+        return redirect('category')->with('success', 'Category Added!!!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show($id)
     {
-        //
+        $categories = Category::find($id);
+        return view('categories.show')->with('categories', $categories);
     }
 
     /**
@@ -45,7 +59,9 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        // $categories = Category::find($id);
+        $games = Game::all();
+        return view('categories.edit', compact('category', 'games'));
     }
 
     /**
@@ -53,7 +69,16 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'game_id' => 'required',
+        ], [
+            'game_id.required' => 'Game must be selected'
+        ]);
+
+        $input = $request->all();
+        $category->update($input);
+        return redirect('category')->with('success', 'Category Updated!!!');
     }
 
     /**
@@ -61,6 +86,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        Category::destroy($category->id);
+        return redirect('category')->with('success', 'Category Deleted!!!');
     }
 }

@@ -18,6 +18,7 @@ class GameFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'image' => fake()->imageUrl(),
         ];
     }
 }
