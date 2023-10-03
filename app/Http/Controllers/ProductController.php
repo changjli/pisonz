@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -13,7 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::paginate(5);
+        return view('products.index')->with('products', $products);
     }
 
     /**
@@ -21,7 +23,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('products.create', compact('categories'));
     }
 
     /**
@@ -29,15 +32,28 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'category_id' => 'required',
+            'price' => 'required',
+            'quantity' => 'required',
+            'notes' => 'required',
+        ], [
+            'category_id.required' => 'Category must be selected'
+        ]);
+
+        $input = $request->all();
+        Product::create($input);
+        return redirect('product')->with('success', 'Product Added!!!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        //
+        $products = Product::find($id);
+        return view('products.show')->with('products', $products);
     }
 
     /**
@@ -45,7 +61,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        // $products = Product::find($id);
+        $categories = Category::all();
+        return view('products.edit', compact('product', 'categories'));
     }
 
     /**
@@ -53,7 +71,19 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'category_id' => 'required',
+            'price' => 'required',
+            'quantity' => 'required',
+            'notes' => 'required',
+        ], [
+            'category_id.required' => 'Category must be selected'
+        ]);
+
+        $input = $request->all();
+        $product->update($input);
+        return redirect('product')->with('success', 'Product Updated!!!');
     }
 
     /**
@@ -61,6 +91,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        Product::destroy($product->id);
+        return redirect('product')->with('success', 'Product Deleted!!!');
     }
 }
