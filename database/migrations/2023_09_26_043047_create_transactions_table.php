@@ -16,11 +16,11 @@ return new class extends Migration
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('payment_id');
             $table->string('phone_number');
-            $table->float('total_price');
+            $table->unsignedBigInteger('total_price');
             $table->string('payment_evidence');
             $table->string('status');
-            $table->foreign('product_id')->references('id')->on('products');
-            $table->foreign('payment_id')->references('id')->on('payments');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('payment_id')->references('id')->on('payments')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\TransactionController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GameController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,17 +21,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// admin login
-Route::get('/admin/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
+route::view('/home', 'home');
 
-Route::post('/admin/login', [LoginController::class, 'login'])->middleware('guest');
+Route::resource("/game", GameController::class);
 
-Route::post('/admin/logout', [LoginController::class, 'logout'])->middleware('auth');
+Route::resource("/category", CategoryController::class);
 
-// Route::post('/admin/register', [LoginController::class, 'register'])->middleware('guest');
+Route::resource("/product", ProductController::class);
 
-// admin transaction
-Route::resource('/admin/transaction', TransactionController::class)->middleware('auth');
-
-// admin user (super admin)
-Route::resource('/admin/user', UserController::class)->middleware('auth');
+Route::resource("/payment", PaymentController::class);
