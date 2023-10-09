@@ -73,18 +73,15 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        // $rules = [
-        //     'name' => 'required',
-        //     'email' => 'required|unique:users|email:dns',
-        // ];
-        // $validated = $request->validate($rules); 
+        $rules = [
+            'name' => 'required',
+        ];
+        if($request->email != $user->email){
+            $rules['email'] = 'required|unique:users|email:dns';
+        }
+        $validated = $request->validate($rules); 
 
-        // $validated['status'] = 'admin';
-
-        User::where('id', $user->id)->update([
-            'name' => $request->name, 
-            'email' => $request->email,
-        ]);
+        User::where('id', $user->id)->update($validated);
 
         return redirect('/admin/user');
     }
@@ -94,6 +91,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        User::where('id', $user->id)->delete();
+
+        return redirect('/admin/user');
     }
 }

@@ -15,6 +15,11 @@
         <div>{{$user->name}}</div>
         <a href="/admin/user/{{$user->id}}">show</a>
         <a href="/admin/user/{{$user->id}}/edit">edit</a>
+        <form action="/admin/user/{{$user->id}}" method="post">
+            @csrf
+            @method('delete');
+            <button type="submit">delete</button>
+        </form>
     @endforeach
     </div>
   

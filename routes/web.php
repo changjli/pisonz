@@ -21,7 +21,7 @@ Route::get('/', function () {
 });
 
 // admin login
-Route::get('/admin/login', [LoginController::class, 'index'])->middleware('guest');
+Route::get('/admin/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
 
 Route::post('/admin/login', [LoginController::class, 'login'])->middleware('guest');
 
@@ -33,4 +33,4 @@ Route::post('/admin/logout', [LoginController::class, 'logout'])->middleware('au
 Route::resource('/admin/transaction', TransactionController::class)->middleware('auth');
 
 // admin user (super admin)
-Route::resource('/admin/user', UserController::class);
+Route::resource('/admin/user', UserController::class)->middleware('auth');
