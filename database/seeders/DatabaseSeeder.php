@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Game;
 use App\Models\Payment;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,6 +24,14 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        // user 
+        User::create([
+            'name' => 'Nicholas Audric',
+            'email' => 'nicholasaudric@gmail.com',
+            'password' => 'password',
+            'status' => 'super',
+        ]);
 
         // games 
         Game::factory()->create([

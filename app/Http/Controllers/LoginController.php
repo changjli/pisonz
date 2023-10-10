@@ -11,53 +11,35 @@ use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('admin/login');
     }
 
-    public function register(Request $request)
+    public function login(Request $request)
     {
         $rules = [
-            'name' => 'required',
-            'email' => 'required|unique:users|email:dns',
+            'email' => 'required|email:dns',
             'password' => 'required|min:6|max:255',
         ];
-        $validated = $request->validate($rules); 
+        $credentials = $request->validate($rules);
 
-        $validated['password'] = Hash::make($validated['password']);
-        $validated['status'] = 'admin';
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
 
-        if(User::create($validated)){
-            return redirect('/admin/login')->with('success', 'register success');
-        }else{
-            return redirect('/admin/login')->with('error', 'register error');
+            return redirect()->intended('/admin');
         }
 
+        return back()->with('error', 'email or password error');
     }
 
-    public function login(Request $request){
-        $rules = [
-            'email' => 'required|email:dns', 
-            'password' => 'required|min:6|max:255', 
-        ];
-        $validated = $request->validate($rules); 
-        
-        if(Auth::attempt($validated)){
-            $request->session()->regenerate(); 
+    public function logout(Request $request)
+    {
+        Auth::logout();
 
-            return redirect()->intended('/admin/transaction');
-        }
+        $request->session()->invalidate();
 
-        return back()->with('error', 'login failed');
-
-    }
-
-    public function logout(Request $request){
-        Auth::logout(); 
-
-        $request->session()->invalidate(); 
-
-        $request->session()->regenerateToken(); 
+        $request->session()->regenerateToken();
 
         return redirect('/admin/login');
     }
