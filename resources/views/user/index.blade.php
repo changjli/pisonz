@@ -116,13 +116,16 @@
             </div>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4">
-            <div class="overflow-hidden rounded-lg">
-                <a href="order.html">
-                    <img class="h-auto max-w-full hover:scale-105 transition-transform"
-                        src="assets/games/compressed/pubg.jpg" alt="pubg" />
-                </a>
-            </div>
-            <div class="overflow-hidden rounded-lg">
+            @foreach ($games as $game)
+                <div class="overflow-hidden rounded-lg">
+                    <a href="/order/{{ $game->id }}">
+                        <img class="h-auto max-w-full hover:scale-105 transition-transform"
+                            src="assets/games/compressed/pubg.jpg" alt="pubg" />
+                    </a>
+                </div>
+            @endforeach
+
+            {{-- <div class="overflow-hidden rounded-lg">
                 <a href="order.html" target="_blank">
                     <img class="h-auto max-w-full hover:scale-105 transition-transform"
                         src="assets/games/compressed/ml.jpg" alt="ml" />
@@ -139,7 +142,7 @@
                     <img class="h-auto max-w-full hover:scale-105 transition-transform"
                         src="assets/games/compressed/ff.jpg" alt="ff" />
                 </a>
-            </div>
+            </div> --}}
             <div>
                 <img class="h-auto max-w-full rounded-lg" src="assets/games/compressed/cs.jpg" alt="cs" />
             </div>
@@ -179,7 +182,7 @@
     </footer>
 
     <!-- Flowbite -->
-    <script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
+    <script src="{{ asset('js/flowbite.min.js') }}"></script>
 </body>
 
 </html>

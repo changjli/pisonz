@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PaymentController;
@@ -46,18 +47,14 @@ Route::prefix('admin')->group(function () {
     Route::middleware(['guest'])->group(function () {
         Route::get('/login', [LoginController::class, 'index']);
         Route::post('/login', [LoginController::class, 'login'])->name('login');
-        // Route::get('/register', [RegisterController::class, 'inde']);
+        // Route::get('/register', [RegisterController::class, 'index']);
     });
 });
 
 // user 
-Route::get('/', function () {
-    return view('user.index');
-});
+Route::get('/', [FrontController::class, 'home']);
 
-Route::get('/order', function () {
-    return view('user.order');
-});
+Route::get('/order/{game}', [FrontController::class, 'order']);
 
 Route::get('/payment', function () {
     return view('user.payment');
