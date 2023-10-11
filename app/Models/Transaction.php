@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
 {
-    protected $fillable = ['product_id', 'payment_id', 'phone_number', 'total_price', 'payment_evidence', 'status'];
+    protected $guarded = ['id'];
 
     public function Product()
     {

@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id');
+            $table->string('user_nickname');
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('payment_id');
-            $table->string('phone_number');
-            $table->unsignedBigInteger('total_price');
+            $table->string('email');
             $table->string('payment_evidence');
             $table->string('status');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');

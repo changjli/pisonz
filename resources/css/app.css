@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:checked+label {
+    @apply bg-primary/20 border-[2.5px] border-primary saturate-200;
+}

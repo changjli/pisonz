@@ -56,14 +56,8 @@ Route::get('/', [FrontController::class, 'home']);
 
 Route::get('/order/{game}', [FrontController::class, 'order']);
 
-Route::get('/payment', function () {
-    return view('user.payment');
-});
+Route::post('/payment', [FrontController::class, 'payment']);
 
-Route::get('/receipt', function () {
-    return view('user.receipt');
-});
+Route::post('/receipt', [FrontController::class, 'receipt']);
 
-Route::get('/tracking', function () {
-    return view('user.tracking');
-});
+Route::get('/tracking', [TransactionController::class, 'tracking']);

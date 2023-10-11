@@ -76,8 +76,8 @@
                 <h1 class="xlarge-font"><b>Transaction</b></h1>
                 <h1 class="large-font" style="color:MediumSeaGreen;"><b>View Transaction</b></h1>
                 <p><span style="font-size:36px">View your payment or topup here.</span></p>
-                <button class="button"><a href="payment">View Payment</a></button>
-                <button class="button"><a href="AdmTransactionTopup.html">View Topup</a></button>
+                <button class="button"><a href="/admin/payments">View Payment</a></button>
+                <button class="button"><a href="/admin/transactions">View Topup</a></button>
             </div>
             <div class="column-33" id="viewtransaction">
                 <img src="{{ asset('assets/transexample.png') }}" width="335" height="471">
@@ -94,7 +94,7 @@
                 <h1 class="xlarge-font"><b>Category</b></h1>
                 <h1 class="large-font" style="color:red;"><b>View Category</b></h1>
                 <p><span style="font-size:24px">View your category.</span></p>
-                <button class="button"><a href="category">View Category</a></button>
+                <button class="button"><a href="/admin/categories">View Category</a></button>
             </div>
         </div>
     </div>
@@ -105,7 +105,7 @@
                 <h1 class="xlarge-font"><b>Product</b></h1>
                 <h1 class="large-font" style="color:MediumSeaGreen;"><b>View your product</b></h1>
                 <p><span style="font-size:36px">Use the button below to view your product.</span></p>
-                <button class="button"><a href="product">View Product</a></button>
+                <button class="button"><a href="/admin/products">View Product</a></button>
             </div>
             <div class="column-33" id="viewproduct">
                 <img src="{{ asset('assets/download.png') }}" width="335" height="471">
@@ -122,7 +122,7 @@
                 <h1 class="xlarge-font"><b>Game</b></h1>
                 <h1 class="large-font" style="color:red;"><b>View your games</b></h1>
                 <p><span style="font-size:24px">Use the button below to view your game.</span></p>
-                <button class="button"><a href="game" style="">View Game</a></button>
+                <button class="button"><a href="/admin/games" style="">View Game</a></button>
             </div>
         </div>
     </div>
