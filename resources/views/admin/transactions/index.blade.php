@@ -24,14 +24,15 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Transaction Id</th>
+                                        <th>Id</th>
                                         <th>User Id</th>
                                         <th>User Nickname</th>
-                                        <th>Product Id</th>
-                                        <th>Payment Id</th>
+                                        <th>Game</th>
+                                        <th>Product</th>
+                                        <th>Payment</th>
                                         <th>Email</th>
-                                        <th>Transaction Status</th>
-                                        <th>Payment Evidence</th>
+                                        <th>Status</th>
+                                        <th>Evidence</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -46,21 +47,47 @@
                                             <td>{{ $transaction->Payment->method }}</td>
                                             <td>{{ $transaction->email }}</td>
                                             <td>{{ $transaction->status }}</td>
-                                            <td><img src="{{ asset("storage/$transaction->payment_evidence") }}"
-                                                    alt="">
+                                            <td>
+                                                <!-- Button trigger modal -->
+                                                <button type="button" class="btn" data-toggle="modal"
+                                                    data-target="#exampleModalCenter">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </button>
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="exampleModalCenter" tabindex="-1"
+                                                    role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLongTitle">Payment
+                                                                    evidence</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <img src="{{ asset("storage/$transaction->payment_evidence") }}"
+                                                                    alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </td>
                                             <td>
                                                 <form action="/admin/transactions/{{ $transaction->id }}?action=done"
                                                     method="POST">
                                                     @csrf
                                                     @method('PUT')
-                                                    <button type="submit">Done</button>
+                                                    <button type="submit"><i class="fa-solid fa-check"></i></button>
                                                 </form>
                                                 <form action="/admin/transactions/{{ $transaction->id }}?action=cancel"
                                                     method="POST">
                                                     @csrf
                                                     @method('PUT')
-                                                    <button type="submit">Cancel</button>
+                                                    <button type="submit"><i class="fa-solid fa-xmark"></i></button>
                                                 </form>
                                             </td>
                                         </tr>

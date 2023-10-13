@@ -11,39 +11,6 @@
 </head>
 
 <body>
-    {{-- <nav class="navbar">
-        <!-- LOGO -->
-        <div class="logo"><a href="home"><img src="{{ asset('assets/v1_25.png') }}" alt="pisonzlogo" width="60px"
-                    height="40px"></a></div>
-
-        <!-- NAVIGATION MENU -->
-        <ul class="nav-links">
-
-            <!-- USING CHECKBOX HACK -->
-            <input type="checkbox" id="checkbox_toggle" />
-            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
-
-            <!-- NAVIGATION MENUS -->
-            <div class="menu">
-
-                <li><a class="active" href="home">Home</a></li>
-                <li class="transaction">
-                    <a href="#viewtransaction">Transaction</a>
-
-                    <!-- DROPDOWN MENU -->
-                    <ul class="dropdown">
-                        <li><a href="#viewtransaction">Payment</a></li>
-                        <li><a href="AdmTransactionTopup.html">Top Up</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="#viewcategory">Category</a></li>
-                <li><a href="#viewproduct">Product</a></li>
-                <li><a href="#viewgame">Game</a></li>
-            </div>
-        </ul>
-    </nav> --}}
-
     <nav>
         <div class="logo"><a href="home"><img src="{{ asset('assets/v1_25.png') }}" alt="pisonzlogo" width="60px"
                     height="40px"></a></div>
