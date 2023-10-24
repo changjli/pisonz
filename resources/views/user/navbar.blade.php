@@ -1,7 +1,7 @@
  <!-- Navbar Start -->
- <nav class="border-gray-200 bg-primary sticky top-0 z-[9999] shadow-lg">
+ <nav class="border-gray-200 bg-primary sticky top-0 z-[9999] shadow-lg font-['verdana'] font-extralight">
      <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-         <a href="index.html" class="flex items-center">
+         <a href="/" class="flex items-center">
              <img src="{{ asset('assets/logo.png') }}" class="h-8 mr-3" alt="Flowbite Logo" />
          </a>
          <button data-collapse-toggle="navbar-default" type="button"
