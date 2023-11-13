@@ -5,7 +5,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h2>Category CRUD (Create, Read, Update and Delete)</h2>
+                        <h2>Transaction CRUD (Create, Read, Update and Delete)</h2>
                     </div>
                     <div class="card-body">
                         <a href="{{ url('/category/create') }}" class="btn btn-success btn-sm" title="Add New Category">

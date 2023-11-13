@@ -12,27 +12,27 @@
 
 <body>
     <nav>
-        <div class="logo"><a href="home"><img src="{{ asset('assets/v1_25.png') }}" alt="pisonzlogo" width="60px"
+        <div class="logo"><a href="/admin"><img src="{{ asset('assets/v1_25.png') }}" alt="pisonzlogo" width="60px"
                     height="40px"></a></div>
         <label for="btn" class="icon">
             <span class="fa fa-bars"></span>
         </label>
         <input type="checkbox" id="btn">
         <ul>
-            <li><a class="active" href="home">Home</a></li>
-            <li><a href="#">Admin</a></li>
-            <li>
-                <label for="btn-1" class="show">Transaction +</label>
-                <a href="#viewtransaction">Transaction</a>
-                <input type="checkbox" id="btn-1">
-                <ul>
-                    <li><a href="#viewtransaction">Payment</a></li>
-                    <li><a href="#viewtransaction">Top Up</a></li>
-                </ul>
-            </li>
+            <li><a href="/admin">Home</a></li>
+            <li><a href="/admin/users">Admin</a></li>
+            <li><a href="#viewtransaction">Payment</a></li>
+            <li><a href="#viewtransaction">Top Up</a></li>
             <li><a href="#viewcategory">Category</a></li>
             <li><a href="#viewproduct">Product</a></li>
             <li><a href="#viewgame">Game</a></li>
+            <li><a href="#viewpromo">Promo</a></li>
+            <li>
+                <form action="/admin/logout" method="POST">
+                    @csrf
+                    <button type="submit">Logout</button>
+                </form>
+            </li>
         </ul>
     </nav>
 
@@ -93,9 +93,20 @@
             </div>
         </div>
     </div>
-
-
-
+    {{-- Promo Section --}}
+    <div class="container">
+        <div class="row">
+            <div class="column-66">
+                <h1 class="xlarge-font"><b>Promo</b></h1>
+                <h1 class="large-font" style="color:MediumSeaGreen;"><b>View Promo here</b></h1>
+                <p><span style="font-size:36px">Use the button below to view promo page.</span></p>
+                <button class="button"><a href="/admin/promos">View Promo</a></button>
+            </div>
+            <div class="column-33" id="viewpromo">
+                <img src="{{ asset('assets/download.png') }}" width="335" height="471">
+            </div>
+        </div>
+    </div>
 
     <a href="#" class="btnup" style="color: white">UP</a>
 

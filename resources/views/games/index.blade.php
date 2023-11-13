@@ -8,7 +8,7 @@
                         <h2>Game CRUD (Create, Read, Update and Delete)</h2>
                     </div>
                     <div class="card-body">
-                        <a href="{{ url('/game/create') }}" class="btn btn-success btn-sm" title="Add New Game">
+                        <a href="{{ url('admin/games/create') }}" class="btn btn-success btn-sm" title="Add New Game">
                             Add New Game
                         </a>
                         <br/>
@@ -38,10 +38,10 @@
                                         <td><img src="{{ $item->image }}" width="100px"></td>
   
                                         <td>
-                                            <a href="{{ url('/game/' . $item->id) }}" title="View Game"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/game/' . $item->id . '/edit') }}" title="Edit Game"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/admin/games/' . $item->id) }}" title="View Game"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            <a href="{{ url('/admin/games/' . $item->id . '/edit') }}" title="Edit Game"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
   
-                                            <form method="POST" action="{{ url('/game' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                            <form method="POST" action="{{ url('/admin/games' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
                                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete Game" onclick="return confirm('Confirm delete?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>

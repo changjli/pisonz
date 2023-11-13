@@ -37,7 +37,7 @@ class GameController extends Controller
 
         $input = $request->all();
         Game::create($input);
-        return redirect('game')->with('success', 'Game Added!!!');
+        return redirect('/admin/games')->with('success', 'Game Added!!!');
     }
 
     /**
@@ -72,7 +72,7 @@ class GameController extends Controller
 
         $input = $request->all();
         $games->update($input);
-        return redirect('game')->with('success', 'Game Updated!!!');
+        return redirect('/admin/games')->with('success', 'Game Updated!!!');
     }
 
     /**
@@ -81,6 +81,6 @@ class GameController extends Controller
     public function destroy($id)
     {
         Game::destroy($id);
-        return redirect('game')->with('success', 'Game Deleted!!!');
+        return redirect('/admin/games')->with('success', 'Game Deleted!!!');
     }
 }

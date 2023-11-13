@@ -5,7 +5,7 @@
   <div class="card-header">Edit Game</div>
   <div class="card-body">
        
-      <form action="{{ url('game/' .$games->id) }}" method="post">
+      <form action="{{ url('/admin/games/' .$games->id) }}" method="post">
         {!! csrf_field() !!}
         @method("PATCH")
         <input type="hidden" name="id" id="id" value="{{$games->id}}" id="id" />
@@ -23,7 +23,7 @@
         <br>
         <input type="submit" value="Update" class="btn btn-success"></br>
     </form></br>
-    <a class="btn btn-primary" href="{{ url('/game') }}"> Back</a>
+    <a class="btn btn-primary" href="{{ url('/admin/games') }}"> Back</a>
     
   </div>
 </div>
