@@ -42,7 +42,7 @@ class CategoryController extends Controller
 
         $input = $request->all();
         Category::create($input);
-        return redirect('category')->with('success', 'Category Added!!!');
+        return redirect('/admin/categories')->with('success', 'Category Added!!!');
     }
 
     /**
@@ -57,11 +57,11 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        // $categories = Category::find($id);
+        $categories = Category::find($id);
         $games = Game::all();
-        return view('categories.edit', compact('category', 'games'));
+        return view('categories.edit', compact('categories', 'games'));
     }
 
     /**
@@ -78,7 +78,7 @@ class CategoryController extends Controller
 
         $input = $request->all();
         $category->update($input);
-        return redirect('category')->with('success', 'Category Updated!!!');
+        return redirect('/admin/categories')->with('success', 'Category Updated!!!');
     }
 
     /**
@@ -87,6 +87,6 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         Category::destroy($category->id);
-        return redirect('category')->with('success', 'Category Deleted!!!');
+        return redirect('/admin/categories')->with('success', 'Category Deleted!!!');
     }
 }

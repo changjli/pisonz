@@ -5,7 +5,7 @@
   <div class="card-header">Create New Category</div>
   <div class="card-body">
       
-      <form action="{{ url('category') }}" method="post">
+      <form action="{{ url('/admin/categories') }}" method="post">
         {!! csrf_field() !!}
         <label>Game</label></br>
         <select name="game_id" id="game_id" class="form-control @error('game_id') is-invalid @enderror">
@@ -26,7 +26,7 @@
         <br>
         <input type="submit" value="Save" class="btn btn-success"></br>
     </form></br>
-    <a class="btn btn-primary" href="{{ url('/category') }}"> Back</a>
+    <a class="btn btn-primary" href="{{ url('/admin/categories') }}"> Back</a>
   </div>
 </div>
   

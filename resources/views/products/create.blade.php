@@ -5,7 +5,7 @@
   <div class="card-header">Create New Product</div>
   <div class="card-body">
        
-      <form action="{{ url('product') }}" method="post">
+      <form action="{{ url('/admin/products') }}" method="post">
         {!! csrf_field() !!}
         <label>Category</label></br>
         <select name="category_id" id="category_id" class="form-control @error('category_id') is-invalid @enderror">
@@ -44,7 +44,7 @@
         <br>
         <input type="submit" value="Save" class="btn btn-success"></br>
     </form></br>
-    <a class="btn btn-primary" href="{{ url('/product') }}"> Back</a>
+    <a class="btn btn-primary" href="{{ url('/admin/products') }}"> Back</a>
   </div>
 </div>
   

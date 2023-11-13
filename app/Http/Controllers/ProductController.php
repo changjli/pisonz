@@ -44,7 +44,7 @@ class ProductController extends Controller
 
         $input = $request->all();
         Product::create($input);
-        return redirect('product')->with('success', 'Product Added!!!');
+        return redirect('/admin/products')->with('success', 'Product Added!!!');
     }
 
     /**
@@ -59,11 +59,11 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        // $products = Product::find($id);
+        $products = Product::find($id);
         $categories = Category::all();
-        return view('products.edit', compact('product', 'categories'));
+        return view('products.edit', compact('products', 'categories'));
     }
 
     /**
@@ -83,7 +83,7 @@ class ProductController extends Controller
 
         $input = $request->all();
         $product->update($input);
-        return redirect('product')->with('success', 'Product Updated!!!');
+        return redirect('/admin/products')->with('success', 'Product Updated!!!');
     }
 
     /**
@@ -92,6 +92,6 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         Product::destroy($product->id);
-        return redirect('product')->with('success', 'Product Deleted!!!');
+        return redirect('/admin/products')->with('success', 'Product Deleted!!!');
     }
 }

@@ -5,7 +5,7 @@
   <div class="card-header">Create New Game</div>
   <div class="card-body">
        
-      <form action="{{ url('game') }}" method="post">
+      <form action="{{ url('/admin/games') }}" method="post">
         {!! csrf_field() !!}
         <label>Game Name</label></br>
         <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
@@ -21,7 +21,7 @@
         <br>
         <input type="submit" value="Save" class="btn btn-success"></br>
       </form></br>
-      <a class="btn btn-primary" href="{{ url('/game') }}"> Back</a>
+      <a class="btn btn-primary" href="{{ url('/admin/games') }}"> Back</a>
     
   </div>
 </div>

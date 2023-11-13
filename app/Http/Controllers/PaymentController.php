@@ -38,7 +38,7 @@ class PaymentController extends Controller
 
         $input = $request->all();
         Payment::create($input);
-        return redirect('payment')->with('success', 'Payment Added!!!');
+        return redirect('/admin/payments')->with('success', 'Payment Added!!!');
     }
 
     /**
@@ -74,7 +74,7 @@ class PaymentController extends Controller
 
         $input = $request->all();
         $payments->update($input);
-        return redirect('payment')->with('success', 'Payment Updated!!!');
+        return redirect('/admin/payments')->with('success', 'Payment Updated!!!');
     }
 
     /**
@@ -83,6 +83,6 @@ class PaymentController extends Controller
     public function destroy($id)
     {
         Payment::destroy($id);
-        return redirect('payment')->with('success', 'Payment Deleted!!!');
+        return redirect('/admin/payments')->with('success', 'Payment Deleted!!!');
     }
 }
