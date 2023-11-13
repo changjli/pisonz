@@ -14,15 +14,24 @@
 
       <!-- Card Start [Input Game Data] -->
       <div class="relative w-full p-5 py-8 mt-5 bg-teal-100 rounded-3xl">
-        <div
-          class="absolute flex items-center justify-center p-3 text-white rounded-full -top-1 -left-2 h-7 w-7 bg-primary border-2 border-primary/30">
-          1</div>
-        <h1 class="font-bold font-['Poppins'] tracking-[1px]">Input Game Data</h1>
+
+
+        <div class="flex gap-4 mb-5">
+          <div class="flex items-center justify-center p-3 text-white rounded rotate-45 -top-1 -left-2 h-5 w-5 bg-primary">
+            <span class="-rotate-45 font-bold text-sm">1</span>
+          </div>
+          <div>
+            <h1 class="font-semibold font-['Poppins']">Input Game Data</h1>
+            <div class="w-full h-1 bg-primary mt-2"></div>
+          </div>
+        </div>
+
+
         <div class="gap-2 p-5 mt-2 rounded-lg bg-primary md:flex md:items-center md:gap-20 justify-evenly">
           <main>
             <h2 class="mb-2 text-white md:text-center font-['Poppins'] tracking-[1px]">User ID</h2>
             <input type="text" id="default-search"
-              class="block w-full  text-dark border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-50 md:w-96 md:h-11 md:text-base text-[.75rem] font-['roboto'] font-medium tracking-wide"
+              class="block w-full text-dark border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-50 md:w-96 md:h-11 md:text-base text-[.75rem] font-['roboto'] font-medium tracking-wide"
               placeholder="ex: 2541554124" required name="user_id" autocomplete="off" value="{{ old('user_id') }}" />
             @error('user_id')
               {{ $message }}
@@ -45,10 +54,20 @@
 
       <!-- Card Start [Choose Service Nominal] -->
       <div class="relative w-full p-5 py-8 mt-5 bg-teal-100 rounded-3xl">
-        <div
-          class="absolute flex items-center justify-center p-3 text-white rounded-full -top-1 -left-2 h-7 w-7 bg-primary">
-          2</div>
-        <h1 class="font-bold font-['Poppins'] tracking-[1px]">Choose Service Nominal</h1>
+
+
+        <div class="flex gap-4 mb-5">
+          <div
+            class="flex items-center justify-center p-3 text-white rounded rotate-45 -top-1 -left-2 h-5 w-5 bg-primary">
+            <span class="-rotate-45 font-bold text-sm">2</span>
+          </div>
+          <div>
+            <h1 class="font-semibold font-['Poppins']">Choose Service Nominal</h1>
+            <div class="w-full h-1 bg-primary mt-2"></div>
+          </div>
+        </div>
+
+
         <div class="mt-3">
           @foreach ($game->Category as $category)
             <div class="text-primary font-bold mt-3 font-['Poppins'] tracking-[1px] text-sm">{{ $category->name }}</div>
@@ -73,10 +92,19 @@
 
       <!-- Card Start [Choose Payment Method] -->
       <div class="relative w-full p-5 py-8 mt-5 bg-teal-100 rounded-3xl">
-        <div
-          class="absolute flex items-center justify-center p-3 text-white rounded-full -top-1 -left-2 h-7 w-7 bg-primary">
-          3</div>
-        <h1 class="font-bold font-['Poppins'] tracking-[1px]">Choose Payment Method</h1>
+
+        <div class="flex gap-4 mb-5">
+          <div
+            class="flex items-center justify-center p-3 text-white rounded rotate-45 -top-1 -left-2 h-5 w-5 bg-primary">
+            <span class="-rotate-45 font-bold text-sm">3</span>
+          </div>
+          <div>
+            <h1 class="font-semibold font-['Poppins']">Choose Payment Method</h1>
+            <div class="w-full h-1 bg-primary mt-2"></div>
+          </div>
+        </div>
+
+
 
         <section class="grid grid-cols-2 gap-3">
           @foreach ($payments as $payment)
@@ -86,7 +114,8 @@
               class="flex items-center justify-between max-w-xl p-5 my-5 bg-white shadow-2xl hover:opacity-60 rounded-xl">
               <h1 class="font-semibold md:text-xl">{{ $payment->method }}</h1>
               <div class="flex gap-4 md:gap-10">
-                <img src="assets/order/bri.png" class="w-16 h-5 md:w-32 md:h-10" alt="BRI" />
+                <img src="{{ $payment->img }}" class="w-16 h-5 md:w-36 md:h-10 cursor-pointer"
+                  alt="{{ $payment->method }}" />
               </div>
             </label>
           @endforeach
@@ -150,21 +179,72 @@
       </div>
       <!-- Card End [Choose Payment Method] -->
 
+
+      {{-- Card Start [Promo] --}}
+      <div class="relative w-full p-5 py-8 mt-5 bg-teal-100 rounded-3xl">
+
+
+        <div class="flex gap-4 mb-5">
+          <div
+            class="flex items-center justify-center p-3 text-white rounded rotate-45 -top-1 -left-2 h-5 w-5 bg-primary">
+            <span class="-rotate-45 font-bold text-sm">4</span>
+          </div>
+          <div>
+            <h1 class="font-semibold font-['Poppins']">Promo</h1>
+            <div class="w-full h-1 bg-primary mt-2"></div>
+          </div>
+        </div>
+
+
+        <div class="p-6 mx-auto border border-gray-200 shadow bg-primary rounded-2xl md:max-w-3xl">
+          <h5 class="mb-2 text-lg font-medium text-white font-['Poppins'] tracking-[1px]">Input Promo Code:
+          </h5>
+
+
+          <div class="relative">
+            <input type="text" id="default-search"
+              class="block w-full p-4 font-medium rounded-lg md:text-lg text-dark bg-gray-50 focus:ring-blue-500 focus:border-blue-50 font-['Poppins'] @error('email') border-4 border-red-600  @enderror tracking-[1px]"
+              placeholder="ex: pz-101" required name="email" value="{{ old('email') }}" />
+            @error('email')
+              <div class="text-red-600 font-bold font-['Poppins']">
+                {{ $message }}
+              </div>
+            @enderror
+
+          </div>
+        </div>
+
+
+
+
+      </div>
+      {{-- Card End [Promo] --}}
+
+
       <!-- Card Start [Payment Confirmation] -->
       <div class="relative w-full p-5 py-8 mt-5 bg-teal-100 rounded-3xl">
-        <div
-          class="absolute flex items-center justify-center p-3 text-white rounded-full -top-1 -left-2 h-7 w-7 bg-primary">
-          4</div>
-        <h1 class="font-bold font-['Poppins'] tracking-[1px]">Payment Confirmation</h1>
 
-        <div class="h-[240px] max-w-sm p-6 mx-auto mt-10 border border-gray-200 shadow bg-primary rounded-2xl md:max-w-3xl">
-          <h5 class="mb-2 text-xl font-semibold  text-white font-['Poppins'] tracking-[1px]">Input Email or WhatsApp
+
+        <div class="flex gap-4 mb-5">
+          <div
+            class="flex items-center justify-center p-3 text-white rounded rotate-45 -top-1 -left-2 h-5 w-5 bg-primary">
+            <span class="-rotate-45 font-bold text-sm">5</span>
+          </div>
+          <div>
+            <h1 class="font-semibold font-['Poppins']">Payment Confirmation</h1>
+            <div class="w-full h-1 bg-primary mt-2"></div>
+          </div>
+        </div>
+
+        <div
+          class="max-w-sm p-6 mx-auto mt-10 border border-gray-200 shadow bg-primary rounded-2xl md:max-w-3xl">
+          <h5 class="mb-2 text-xl font-medium  text-white font-['Poppins'] tracking-[1px]">Input WhatsApp
             Number:
           </h5>
           <div class="relative">
             <input type="text" id="default-search"
               class="block w-full p-4 font-medium  rounded-lg md:text-lg text-dark bg-gray-50 focus:ring-blue-500 focus:border-blue-50 font-['Poppins'] @error('email') border-4 border-red-600  @enderror tracking-[1px]"
-              placeholder="ex: budi@gmail.com or 081212541247" required name="email" value="{{ old('email') }}" />
+              placeholder="ex: 081212541247" required name="email" value="{{ old('email') }}" />
             @error('email')
               <div class="text-red-600 font-bold font-['Poppins']">
                 {{ $message }}

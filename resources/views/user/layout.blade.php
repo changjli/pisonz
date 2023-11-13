@@ -25,7 +25,7 @@
 
   @yield('container')
 
-  
+  @include('user.footer')
 </body>
 
 </html>
