@@ -36,22 +36,22 @@ class DatabaseSeeder extends Seeder
         // games 
         Game::create([
             'name' => 'PUBG',
-            'image' => 'https://s3-alpha-sig.figma.com/img/40ab/52d1/562c3ca423d6db55aabed928f148a171?Expires=1698019200&Signature=avPww4aHBsa9ZeldNHjiYowvDICHVMWPa-DEzMuT-ue3f0eB12vVRR-Tmjlx-lhnMPPC2cRfpy1fH7i6eelENerOWzR3Vh10Ridv0bMD9Bvj7x6C3Q72Cf46z1iWiYKTbh~k6dJHbNBWYbEQhwxEJBE89snYjbFIcIS-eGaCp2G6t8t50lJ8-ry6j~-73~Ui48ARvjxPjwazD0ixiigFhKeMsISTSnvqMMqKcqqqlxsUUV6GjsVFKi2mTde2y8OBDH76gnOngBe-EWZZBGQyx7bat3-~5G1tS6Kc2Yw7EugW1T2XH~mBzfu6DUxuXsnT4t~OvgQaq8tWP0GY3TcGUA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
+            'image' => 'http://drive.google.com/uc?export=view&id=1c8d8G9geFvNuaR9BKxGQJKKxQu0BukHa'
         ]);
 
         Game::create([
             'name' => 'Mobile Legends',
-            'image' => 'https://s3-alpha-sig.figma.com/img/de7c/c13c/8497dd7d8bc81261734ccd14307d051b?Expires=1698019200&Signature=RrsZEnCae0X4A8rcP5joS3nCS0FcHR12Y1z~VufmT~X~oNmup8EiTk~UNGatsoMOH61EQCyawY3qzhSr0sGHqM2CnDpH48zjjvlDzO-he10CG4uxBjhqj~-B6NtHUXXHs6w~DMcw~wf9IMu6ah5HorOQWouyUYUushH6OnjXAhAfZ6KohVk4A2f9DGDNpH2t4FIa32MhdpxLqvdgfz1YGvPiBsZOGdcABY4TuHSu-msxGBisbz65GSKqTO8Fxopj7AdTfERxOFBIc4omEluZq-c9RDqVIQQRqaosvdq8MmDKakYeEAjM55meXpH~heN2y2NUtYqBwRiP2hB4fSfxxw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
+            'image' => 'http://drive.google.com/uc?export=view&id=12sxNMp3LgbbNbOcmkY8YKoFYwPPCVzgZ'
         ]);
 
         Game::create([
             'name' => 'Genshin Impact',
-            'image' => 'https://s3-alpha-sig.figma.com/img/5b7a/bb61/cdf4cd3372d107e34d869332d4527774?Expires=1698019200&Signature=UbbZ1ZuWpPSAgKKRAAI9zY8DPC7qKcm~~PQWanCJmtZfrLhzwuFl6QWBbNBw2Fb7lvnRYM3ifeylHFe4UnK5cIlw303qTTe1LjjZGNKw~SIedrfIMn-XsKAN3IQsV~pt48lR-eeHCsrxoYEdbXdl~80fY8U1izkMcj4qC1sDPLjiYYkZqwdxymMCVdNoJ56TVeBJzYprKSxziSgFX8291wDl-2Yc8HBTXCyB4~VnL2eodnXsrxNUO0rN0ihsZ6G2ZmARjBhG4sIzbTA9WtdkTWKLcSoLD7hIyC6n4Wz135DTA5u0~b4jjV0EPR-1bfjcNq9ftGiAElCGNqRTbZLh5Q__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
+            'image' => 'http://drive.google.com/uc?export=view&id=1TRSViu94TBKMUEx7WAzyZIuMAayxI3TI'
         ]);
 
         Game::create([
             'name' => 'Free Fire',
-            'image' => 'https://s3-alpha-sig.figma.com/img/184a/022a/013a01428b29bdc20fb345cfd6a0dd71?Expires=1698019200&Signature=qR-jLNBF1MIJFSX38iJc-oDF3hfwFJ2zWXloB~OPpQTT9y9p2icSSw-f5lGkeyWeOLNcg6v2HYAnzG7UylUGoG1DYDsv3zZQd3Nc2HbUhWIp-52l7OgQGH9U01OzlOMwwf65K~GfdTGoTFMfunTxp72J7siQ5oR~JdEqDvkK9OGNqWXRAAqdumH7Jk0TyKqLsLV8gOJuWs5KUJAvyIML7QSWOkOxre8DwHGDsiXb3WBCqahJ8ww4jDee1YIiLJds8lXuKLzmDJ---gCLKMGDHzDsW2BY-uZt33fi0CrE9SnU3OC4sSdB7XxPRrO3KkWGB7MD5FF~xVNl~GnNbQvPRw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
+            'image' => 'http://drive.google.com/uc?export=view&id=16BaTaEdx4oz8c8tw1sSMdb5MD0rVFZXf'
         ]);
 
         // categories
@@ -120,17 +120,20 @@ class DatabaseSeeder extends Seeder
         Payment::create([
             'method' => 'BCA',
             'account_number' => '123456789',
+            'img' => 'http://drive.google.com/uc?export=view&id=1ZVj7q0hBuQ64u2vAPi117uZ2HScZ46-X',
             'account_name' => 'Sondy',
         ]);
 
         Payment::create([
             'method' => 'Gopay',
             'account_number' => '123456789',
+            'img' => 'http://drive.google.com/uc?export=view&id=1lsuzQxxXiOn1zNPy-Zg3wv8kPYS_Ci98',
             'account_name' => 'Sondy',
         ]);
 
         Payment::create([
             'method' => 'Dana',
+            'img' => 'http://drive.google.com/uc?export=view&id=1EoXEIdU4hham1M82IAmOenKPRGVZGeuF',
             'account_number' => '123456789',
             'account_name' => 'Sondy',
         ]);

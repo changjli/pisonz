@@ -106,5 +106,4 @@
     </div>
   </section>
   <!-- Games End -->
-  @include('user.footer')
 @endsection

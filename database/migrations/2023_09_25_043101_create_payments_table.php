@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('method');
             $table->string('account_number');
+            $table->string('img');
             $table->string('account_name');
             $table->timestamps();
         });
