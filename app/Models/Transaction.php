@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transaction extends Model
 {
-    protected $guarded = ['id'];
+    protected $guarded = [''];
+
+    public $incrementing = false;
 
     public function Product()
     {

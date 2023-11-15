@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\Promo;
 use App\Models\Transaction;
 use Exception;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
@@ -96,7 +97,10 @@ class FrontController extends Controller
             $total = $total - $total * $discount;
         }
 
+        $id = IdGenerator::generate(['table' => 'transactions', 'length' => 6, 'prefix' => 'TR']);
+
         $transaction = Transaction::create([
+            'id' => $id,
             'user_id' => $request->userId,
             'user_nickname' => $request->userNickname,
             'product_id' => $request->product,
@@ -119,10 +123,11 @@ class FrontController extends Controller
             // whatsapp
             $whatsapp_cloud_api = new WhatsAppCloudApi([
                 'from_phone_number_id' => '169238152938139',
-                'access_token' => 'EAADCOFsQlbEBOyqBcf1Abkefk6GkRP96HZC0oNGKyy2BZBgq4SL8yPxFpM1s2hSTnlhkZA0oscNNO4xCj7KLOT6J4s6qDtmyB8bPGvnF8OjuvNAZAi2Hhg1DX09HECqPsHP0DDRkAw7GDs8ZBwBfevYsSMp7ZClNYKJBfCufjmDTkyZBJZAd8TE8VZAFT5WQRVzt0efYRuKhS0xmwYqXm5slITqP44zQZD',
+                'access_token' => 'EAADCOFsQlbEBOZBotdawGB4fyqZB3bdYvqjkX0k9t6xSawy6F0bewGV2fuA5FVox9iSYFzsc6rR5QVXvev6kkv2RJkQTiCaNFxrAixK0DuXoY5ii71OsNnNdLG7m1D9sj6gZByXoTVNDZAiuMf2iVw2JZAZBhNOkAdoSczvxXsEcTNO0XfW52kZAjnguMkAHP5ZC1hoBSRLZAaDBgp0OVC6KTfvF31c4ZD',
             ]);
             try {
-                $whatsapp_cloud_api->sendTextMessage($request->phone, 'hello world');
+                $whatsapp_cloud_api->sendTextMessage($request->phone, 'Transaction ID ' . $transaction->id . ' Thank you for purchasing at Pisonz Store. Your transaction will be processed in 5-10 minutes. Please head to our
+                website to track your transaction status.');
             } catch (Exception $e) {
                 dd($e->getMessage());
             }
