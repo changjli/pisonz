@@ -20,13 +20,13 @@
         @enderror
         <br>
         <label>Start Date</label></br>
-        <input type="text" name="startDate" id="startDate" class="form-control @error('startDate') is-invalid @enderror" value="{{ old('startDate') }}">
+        <input type="datetime-local" name="startDate" id="startDate" class="form-control @error('startDate') is-invalid @enderror" value="{{ old('startDate') }}">
         @error('startDate')
           <div class="invalid-feedback">{{ $message }}</div>
         @enderror
         <br>
         <label>End Date</label></br>
-        <input type="text" name="endDate" id="endDate" class="form-control @error('endDate') is-invalid @enderror" value="{{ old('endDate') }}">
+        <input type="datetime-local" name="endDate" id="endDate" class="form-control @error('endDate') is-invalid @enderror" value="{{ old('endDate') }}">
         @error('endDate')
           <div class="invalid-feedback">{{ $message }}</div>
         @enderror

@@ -1,6 +1,6 @@
 @extends('promos.layout')
 @section('content')
-    <div class="product_container">
+    <div class="promo_container">
         <div class="row" style="margin:20px;">
             <div class="col-12">
                 <div class="card">
@@ -37,8 +37,8 @@
                                     <tr>
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->promo_code }}</td>
-                                        <td>{{ $item->discount }}</td>
-                                        <td>Rp {{ $item->startDate }}</td>
+                                        <td>{{ $item->discount }}%</td>
+                                        <td>{{ $item->startDate }}</td>
                                         <td>{{ $item->endDate }}</td>
   
                                         <td>
