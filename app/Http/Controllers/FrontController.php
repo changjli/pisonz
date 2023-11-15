@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\TransactionMail;
+use App\Models\Banner;
 use App\Models\Game;
 use App\Models\Payment;
 use App\Models\Product;
@@ -21,6 +22,7 @@ class FrontController extends Controller
     {
         return view('user.index', [
             'games' => Game::all(),
+            'banners' => Banner::all(),
         ]);
     }
 

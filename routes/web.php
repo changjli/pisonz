@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\PromoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
@@ -44,6 +45,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('/payments', PaymentController::class);
         Route::resource('/transactions', TransactionController::class);
         Route::resource('/promos', PromoController::class);
+        Route::resource('/banners', BannerController::class);
     });
 
     Route::middleware(['guest'])->group(function () {

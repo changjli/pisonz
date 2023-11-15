@@ -20,17 +20,17 @@
         <input type="checkbox" id="btn">
         <ul>
             <li><a href="/admin">Home</a></li>
-            <li><a href="/admin/users">Admin</a></li>
             <li><a href="#viewtransaction">Payment</a></li>
             <li><a href="#viewtransaction">Top Up</a></li>
             <li><a href="#viewcategory">Category</a></li>
             <li><a href="#viewproduct">Product</a></li>
             <li><a href="#viewgame">Game</a></li>
             <li><a href="#viewpromo">Promo</a></li>
+            <li><a href="#viewbanner">Banner</a></li>
             <li>
                 <form action="/admin/logout" method="POST">
                     @csrf
-                    <button type="submit">Logout</button>
+                    <button type="submit" class="logout-btn">Logout</button>
                 </form>
             </li>
         </ul>
@@ -104,6 +104,20 @@
             </div>
             <div class="column-33" id="viewpromo">
                 <img src="{{ asset('assets/download.png') }}" width="335" height="471">
+            </div>
+        </div>
+    </div>
+    <!--banner section-->
+    <div class="container" style="background-color:#f1f1f1">
+        <div class="row">
+            <div class="column-33" id="viewbanner">
+                <img src="{{ asset('assets/categoryexample.jpeg') }}" alt="App" width="335" height="471">
+            </div>
+            <div class="column-66">
+                <h1 class="xlarge-font"><b>Banner</b></h1>
+                <h1 class="large-font" style="color:red;"><b>View Banner here</b></h1>
+                <p><span style="font-size:24px">Use the button below to view banner page.</span></p>
+                <button class="button"><a href="/admin/banners" style="">View Banner</a></button>
             </div>
         </div>
     </div>

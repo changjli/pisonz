@@ -16,7 +16,7 @@
 <body>
     @include('admin.navbar')
 
-    <div class="product_container">
+    <div class="promo_container">
         @yield('content')
     </div>
 </body>

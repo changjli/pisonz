@@ -5,49 +5,21 @@
   <div id="default-carousel" class="relative mx-auto md:w-3/4 md:mt-3" data-carousel="slide">
     <!-- Carousel wrapper -->
     <div class="relative h-56 overflow-hidden md:rounded-lg md:h-[500px]">
-      <!-- Item 1 -->
-      <div class="hidden duration-700 ease-in-out" data-carousel-item>
-        <img src="/assets/event.webp"
-          class="absolute block object-bottom h-56 w-full -translate-x-1/2 -translate-y-1/2 md:h-[500px] top-1/2 left-1/2"
-          alt="..." />
-      </div>
-      <!-- Item 2 -->
-      <div class="hidden duration-700 ease-in-out" data-carousel-item>
-        <img src="assets/event2.jpg"
-          class="md:h-[500px] absolute block w-full h-56 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-          alt="..." />
-      </div>
-      <!-- Item 3 -->
-      <div class="hidden duration-700 ease-in-out" data-carousel-item>
-        <img src="assets/event3.jpg"
-          class="md:h-[500px] absolute block w-full h-56 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-          alt="..." />
-      </div>
-      <!-- Item 4 -->
-      <div class="hidden duration-700 ease-in-out" data-carousel-item>
-        <img src="assets/event4.jpg"
-          class="md:h-[500px] absolute block w-full h-56 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-          alt="..." />
-      </div>
-      <!-- Item 5 -->
-      <div class="hidden duration-700 ease-in-out" data-carousel-item>
-        <img src="assets/event5.jpg"
-          class="md:h-[500px] absolute block w-full h-56 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-          alt="..." />
-      </div>
+      <!-- Items -->
+      @foreach ($banners as $banner)
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img src="{{ $banner->image }}"
+            class="absolute block object-bottom h-56 w-full -translate-x-1/2 -translate-y-1/2 md:h-[500px] top-1/2 left-1/2"
+            alt="..." />
+        </div>
+      @endforeach
     </div>
     <!-- Slider indicators -->
     <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-      <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
-        data-carousel-slide-to="0"></button>
-      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
-        data-carousel-slide-to="1"></button>
-      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
-        data-carousel-slide-to="2"></button>
-      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4"
-        data-carousel-slide-to="3"></button>
-      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5"
-        data-carousel-slide-to="4"></button>
+      @foreach ($banners as $banner)
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
+          data-carousel-slide-to="{{ $banner->id }}"></button>
+      @endforeach
     </div>
     <!-- Slider controls -->
     <button type="button"

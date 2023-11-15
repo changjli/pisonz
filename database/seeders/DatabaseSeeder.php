@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Game;
 use App\Models\Payment;
@@ -136,6 +137,31 @@ class DatabaseSeeder extends Seeder
             'img' => 'http://drive.google.com/uc?export=view&id=1EoXEIdU4hham1M82IAmOenKPRGVZGeuF',
             'account_number' => '123456789',
             'account_name' => 'Sondy',
+        ]);
+
+        Banner::create([
+            'name' => 'Yu Zhong Buff',
+            'image' => 'http://drive.google.com/uc?export=view&id=13hTXb4QjQVskudH7eZU1cY7wtyh92RGf'
+        ]);
+
+        Banner::create([
+            'name' => 'Starlight',
+            'image' => 'http://drive.google.com/uc?export=view&id=1pdjCFkAzHeiS3d6PrrCewXHVLcULhjSa'
+        ]);
+
+        Banner::create([
+            'name' => 'Zodiac',
+            'image' => 'http://drive.google.com/uc?export=view&id=1IrcJMpOIfMlVpJBkgrSXE3nM7q_eCj4h'
+        ]);
+
+        Banner::create([
+            'name' => 'Flash Promo Weekday',
+            'image' => 'http://drive.google.com/uc?export=view&id=13vrN1WigLmaioUg30xFfB0Ava_2ih294'
+        ]);
+
+        Banner::create([
+            'name' => 'Skins Release Info',
+            'image' => 'http://drive.google.com/uc?export=view&id=17yE23X2gezvYSxh5Vyp3Z05GxV323lSZ'
         ]);
     }
 }

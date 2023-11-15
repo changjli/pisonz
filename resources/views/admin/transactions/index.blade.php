@@ -8,9 +8,6 @@
                         <h2>Transaction CRUD (Create, Read, Update and Delete)</h2>
                     </div>
                     <div class="card-body">
-                        <a href="{{ url('/category/create') }}" class="btn btn-success btn-sm" title="Add New Category">
-                            Add New Category
-                        </a>
                         <br />
                         <br />
 
@@ -49,7 +46,7 @@
                                             <td>{{ $transaction->status }}</td>
                                             <td>
                                                 <!-- Button trigger modal -->
-                                                <button type="button" class="btn" data-toggle="modal"
+                                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
                                                     data-target="#exampleModalCenter">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
@@ -63,12 +60,12 @@
                                                             <div class="modal-header">
                                                                 <h5 class="modal-title" id="exampleModalLongTitle">Payment
                                                                     evidence</h5>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
+                                                                <button type="button" class="close btn btn-danger btn-sm" data-dismiss="modal"
+                                                                    aria-label="Close" style="border: none">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
-                                                            <div class="modal-body">
+                                                            <div class="modal-body d-flex" style="justify-content: center">
                                                                 <img src="{{ $transaction->payment_evidence }}"
                                                                     alt="">
                                                             </div>
@@ -76,18 +73,18 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>
+                                            <td class="d-flex gap-1">
                                                 <form action="/admin/transactions/{{ $transaction->id }}?action=done"
                                                     method="POST">
                                                     @csrf
                                                     @method('PUT')
-                                                    <button type="submit"><i class="fa-solid fa-check"></i></button>
+                                                    <button type="submit" class="btn btn-success btn-sm"><i class="fa-solid fa-check"></i></button>
                                                 </form>
                                                 <form action="/admin/transactions/{{ $transaction->id }}?action=cancel"
                                                     method="POST">
                                                     @csrf
                                                     @method('PUT')
-                                                    <button type="submit"><i class="fa-solid fa-xmark"></i></button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa-solid fa-xmark"></i></button>
                                                 </form>
                                             </td>
                                         </tr>
