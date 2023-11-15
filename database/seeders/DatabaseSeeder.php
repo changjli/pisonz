@@ -67,6 +67,12 @@ class DatabaseSeeder extends Seeder
             'game_id' => 2,
         ]);
 
+
+        Category::create([
+            'name' => 'Pricelist Paket A',
+            'game_id' => 2,
+        ]);
+
         // products 
         // Product::factory(20)->create();
         Product::create([
@@ -115,6 +121,14 @@ class DatabaseSeeder extends Seeder
             'price' => 9500,
             'quantity' => 50,
             'notes' => '42 diamond'
+        ]);
+
+        Product::create([
+            'name' => '86 DM',
+            'category_id' => 3,
+            'price' => 23500,
+            'quantity' => 50,
+            'notes' => '86 diamond'
         ]);
 
         // payments

@@ -47,12 +47,13 @@
                                             <td>
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
-                                                    data-target="#exampleModalCenter">
+                                                    data-target="#{{ $transaction->id }}">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
 
+
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="exampleModalCenter" tabindex="-1"
+                                                <div class="modal fade" id="{{ $transaction->id }}" tabindex="-1"
                                                     role="dialog" aria-labelledby="exampleModalCenterTitle"
                                                     aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -60,8 +61,9 @@
                                                             <div class="modal-header">
                                                                 <h5 class="modal-title" id="exampleModalLongTitle">Payment
                                                                     evidence</h5>
-                                                                <button type="button" class="close btn btn-danger btn-sm" data-dismiss="modal"
-                                                                    aria-label="Close" style="border: none">
+                                                                <button type="button" class="close btn btn-danger btn-sm"
+                                                                    data-dismiss="modal" aria-label="Close"
+                                                                    style="border: none">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
@@ -78,13 +80,15 @@
                                                     method="POST">
                                                     @csrf
                                                     @method('PUT')
-                                                    <button type="submit" class="btn btn-success btn-sm"><i class="fa-solid fa-check"></i></button>
+                                                    <button type="submit" class="btn btn-success btn-sm"><i
+                                                            class="fa-solid fa-check"></i></button>
                                                 </form>
                                                 <form action="/admin/transactions/{{ $transaction->id }}?action=cancel"
                                                     method="POST">
                                                     @csrf
                                                     @method('PUT')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa-solid fa-xmark"></i></button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i
+                                                            class="fa-solid fa-xmark"></i></button>
                                                 </form>
                                             </td>
                                         </tr>
