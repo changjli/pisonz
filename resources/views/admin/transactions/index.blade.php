@@ -69,7 +69,7 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <img src="{{ asset("storage/$transaction->payment_evidence") }}"
+                                                                <img src="{{ $transaction->payment_evidence }}"
                                                                     alt="">
                                                             </div>
                                                         </div>
