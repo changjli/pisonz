@@ -9,18 +9,21 @@
 </head>
 
 <body>
-    <img src="{{ asset('assets/bglogo.png') }}" alt="">
+    <img src="{{ url('assets/bglogo.png') }}" alt="">
     <div>
-        user id : {{ $transaction->user_id }}
+        Transaction ID : {{ $transaction->id }}
     </div>
     <div>
-        user nickname : {{ $transaction->user_nickname }}
+        User ID : {{ $transaction->user_id }}
     </div>
     <div>
-        product : {{ $transaction->Product->name }}
+        User Nickname : {{ $transaction->user_nickname }}
     </div>
     <div>
-        price : {{ $transaction->total }}
+        Product : {{ $transaction->Product->name }}
+    </div>
+    <div>
+        Price : {{ $transaction->total }}
     </div>
     <div>
         Thank you for purchasing at Pisonz Store. Your transaction will be processed in 5-10 minutes. Please head to our

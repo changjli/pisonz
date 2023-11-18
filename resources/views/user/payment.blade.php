@@ -21,6 +21,7 @@
         <section>
             <form action="/receipt" method="POST" enctype="multipart/form-data">
                 @csrf
+                <a href="{{ url()->previous() }}">back</a>
                 {{-- data dari halaman sebelumnya --}}
                 <input type="hidden" name="userId" value="{{ old('userId', $user_id) }}">
                 <input type="hidden" name="userNickname" value="{{ old('userNickname', $user_nickname) }}">

@@ -78,8 +78,8 @@ class TransactionController extends Controller
     {
         $transaction = null;
 
-        if ($request->transaction_id) {
-            $transaction = Transaction::where('id', $request->transaction_id)->first();
+        if ($request->transaction_id && $request->email) {
+            $transaction = Transaction::where('id', $request->transaction_id)->where('email', $request->email)->first();
         }
 
         return view('user.tracking', [

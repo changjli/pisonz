@@ -15,7 +15,6 @@
             <!-- Card Start [Input Game Data] -->
             <div class="relative w-full p-5 py-8 mt-5 bg-teal-100 rounded-3xl">
 
-
                 <div class="flex gap-4 mb-5">
                     <div
                         class="flex items-center justify-center p-3 text-white rounded rotate-45 -top-1 -left-2 h-5 w-5 bg-primary">
@@ -33,8 +32,7 @@
                         <h2 class="mb-2 text-white md:text-center font-['Poppins'] tracking-[1px]">User ID</h2>
                         <input type="text" id="default-search"
                             class="block w-full text-dark rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-50 md:w-96 md:h-11 md:text-base text-[.75rem] font-['roboto'] font-medium tracking-wide @error('user_id') border-4 border-red-600  @enderror"
-                            placeholder="ex: 2541554124 (12345)" name="user_id" autocomplete="off"
-                            value="{{ old('user_id') }}" />
+                            placeholder="ex: 2541554124 (12345)" name="user_id" value="{{ old('user_id') }}" />
                         @error('user_id')
                             <div class="text-red-600 font-bold font-['Poppins']">
                                 {{ $message }}
@@ -47,8 +45,7 @@
                             Nickname</h2>
                         <input type="text" id="default"
                             class="block w-full text-dark rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-50 md:w-96 md:h-11 md:text-base text-[.75rem] font-['roboto'] font-medium tracking-wide @error('user_nickname') border-4 border-red-600  @enderror"
-                            placeholder="ex: budiantonawawan" name="user_nickname" autocomplete="off"
-                            value="{{ old('user_nickname') }}" />
+                            placeholder="ex: budiantonawawan" name="user_nickname" value="{{ old('user_nickname') }}" />
                         @error('user_nickname')
                             <div class="text-red-600 font-bold font-['Poppins']">
                                 {{ $message }}
