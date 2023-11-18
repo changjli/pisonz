@@ -49,6 +49,30 @@
   </div>
   <!-- Slider End -->
 
+
+  {{-- About Start --}}
+  <div class="md:w-3/4 mx-auto md:mt-10 p-2 mt-5">
+    <div>
+      <h1 class="text-2xl font-bold text-primary my-2 font-['Poppins']">About Us</h1>
+      <div class="w-full h-[.5px] bg-primary relative">
+        <div class="w-20 h-1 bg-primary absolute"></div>
+      </div>
+    </div>
+
+    <div class="flex justify-center items-center gap-10 flex-wrap">
+      <div class="kiri md:mt-10 mt-7">
+        <img src="/assets/bglogo.png" class="md:h-40 h-32" alt="">
+      </div>
+      <div class="kanan max-w-2xl md:mt-10 mt-3">
+        <h1 class="text-primary font-bold text-3xl font-['Poppins'] md:p-0 px-3">Pisonz Store</h1>
+        <p class="text-justify font-regular font-['Poppins'] md:p-0 px-3 mt-2">
+          Selamat datang di Pisonz Store, tujuan terbaik untuk top up game mobile Anda. Kami hadir dengan layanan top up yang cepat, aman, dan efisien. Tim kami yang bersemangat berkomitmen untuk memberikan pengalaman gaming yang tanpa ribet. Pilih Pisonz Store untuk top up yang mudah dan nikmati game favorit Anda dengan lebih lancar.</p>
+      </div>
+    </div>
+  </div>
+  {{-- About End --}}
+
+
   <!-- Games Start -->
   <section class="md:w-3/4 mx-auto md:mt-20 p-2" id="games">
     <div>
