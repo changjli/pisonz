@@ -60,7 +60,7 @@ Route::get('/', [FrontController::class, 'home']);
 
 Route::get('/order/{game}', [FrontController::class, 'order']);
 
-Route::post('/payment', [FrontController::class, 'payment']);
+Route::get('/payment', [FrontController::class, 'payment']);
 
 Route::post('/receipt', [FrontController::class, 'receipt']);
 
