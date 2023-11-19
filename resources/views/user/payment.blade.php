@@ -28,7 +28,7 @@
                 <input type="hidden" name="product" value="{{ old('product', $product->id) }}">
                 <input type="hidden" name="payment" value="{{ old('payment', $payment->id) }}">
                 @if ($promo)
-                    <input type="hidden" name="promo" value="{{ old('promo', $promo->code) }}">
+                    <input type="hidden" name="promo" value="{{ old('promo', $promo->promo_code) }}">
                 @else
                     <input type="hidden" name="promo" value="{{ old('promo', '') }}">
                 @endif
