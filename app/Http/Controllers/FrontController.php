@@ -87,19 +87,21 @@ class FrontController extends Controller
         }
 
         if ($request->file('payment_evidence')) {
-            // $payment_evidence = $request->file('payment_evidence')->store('payment-evidence-images');
+            // local
+            $payment_evidence = $request->file('payment_evidence')->store('payment-evidence-images');
 
+            // google drive
             // unique folder 
-            $imageId = uniqid();
+            // $imageId = uniqid();
 
             // store image 
-            Storage::disk('google')->put($imageId, $request->file('payment_evidence'));
+            // Storage::disk('google')->put($imageId, $request->file('payment_evidence'));
 
             // get file from unique folder
-            $file = Storage::disk('google')->files($imageId);
+            // $file = Storage::disk('google')->files($imageId);
 
             // get file link 
-            $payment_evidence = Storage::disk('google')->url($file[0]);
+            // $payment_evidence = Storage::disk('google')->url($file[0]);
         }
 
         $total = $request->total;
@@ -137,19 +139,20 @@ class FrontController extends Controller
             } catch (Exception $e) {
                 dd($e->getMessage());
             }
-        } else if ($request->phone != '') {
-            // whatsapp
-            $whatsapp_cloud_api = new WhatsAppCloudApi([
-                'from_phone_number_id' => '169238152938139',
-                'access_token' => 'EAADCOFsQlbEBO840FgR1O0WU7G8i7O79DDWyY3PIFAKPSo4T6qkB9scA9TOX6VR6AOhZBgTIOBQ8ZCd0aZAyi7K24H4TppcNpbUAQQcEyZAOD0OH4dxTJ57ldsYZCCZBi1o5nAIDnjp8HJFyK1UeO06dbFEhllD5f4jQxnQ6OCg2K3JWcD7FhV798QsATa1ZBwINnw1QMyMP2U4UF8caxSskem6LsAZD',
-            ]);
-            try {
-                $whatsapp_cloud_api->sendTextMessage($request->phone, 'Transaction ID ' . $transaction->id . ' Thank you for purchasing at Pisonz Store. Your transaction will be processed in 5-10 minutes. Please head to our
-                website to track your transaction status.');
-            } catch (Exception $e) {
-                dd($e->getMessage());
-            }
         }
+        // else if ($request->phone != '') {
+        //     // whatsapp
+        //     $whatsapp_cloud_api = new WhatsAppCloudApi([
+        //         'from_phone_number_id' => '169238152938139',
+        //         'access_token' => 'EAADCOFsQlbEBO840FgR1O0WU7G8i7O79DDWyY3PIFAKPSo4T6qkB9scA9TOX6VR6AOhZBgTIOBQ8ZCd0aZAyi7K24H4TppcNpbUAQQcEyZAOD0OH4dxTJ57ldsYZCCZBi1o5nAIDnjp8HJFyK1UeO06dbFEhllD5f4jQxnQ6OCg2K3JWcD7FhV798QsATa1ZBwINnw1QMyMP2U4UF8caxSskem6LsAZD',
+        //     ]);
+        //     try {
+        //         $whatsapp_cloud_api->sendTextMessage($request->phone, 'Transaction ID ' . $transaction->id . ' Thank you for purchasing at Pisonz Store. Your transaction will be processed in 5-10 minutes. Please head to our
+        //         website to track your transaction status.');
+        //     } catch (Exception $e) {
+        //         dd($e->getMessage());
+        //     }
+        // }
 
         return view('user.receipt', [
             'transaction' => $transaction,

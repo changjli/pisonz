@@ -245,20 +245,23 @@
                 </div>
 
                 <div class="max-w-sm p-6 mx-auto mt-10 border border-gray-200 shadow bg-primary rounded-2xl md:max-w-3xl">
-                    <h5 class="mb-2 text-xl font-medium  text-white font-['Poppins'] tracking-[1px]">Input Email:
-                        <div class="relative">
-                            <input type="text" id="default-search"
-                                class="block w-full p-4 font-medium  rounded-lg md:text-lg text-dark bg-gray-50 focus:ring-blue-500 focus:border-blue-50 font-['Poppins'] @error('email') border-4 border-red-600  @enderror tracking-[1px]"
-                                placeholder="ex: pisonz@gmail.com" name="email" value="{{ old('email') }}" />
-                            @error('email')
-                                <div class="text-red-600 font-bold font-['Poppins']">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
+                    <h5 class="mb-2 text-xl font-medium  text-white font-['Poppins'] tracking-[1px]">Input Email:</h5>
+                    <div class="relative">
+                        <input type="text" id="default-search"
+                            class="block w-full p-4 font-medium  rounded-lg md:text-lg text-dark bg-gray-50 focus:ring-blue-500 focus:border-blue-50 font-['Poppins'] @error('email') border-4 border-red-600  @enderror tracking-[1px]"
+                            placeholder="ex: pisonz@gmail.com" name="email" value="{{ old('email') }}" />
+                        @error('email')
+                            <div class="text-red-600 font-bold font-['Poppins']">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                    <button href="payment.html"
+                        class="block px-4 py-2 ml-auto mr-0 font-medium text-white transition-all duration-150 rounded-full bg-dark mt-7 hover:scale-95 font-['Poppins'] tracking-[1px]"
+                        type="submit">Continue</button>
                 </div>
 
-                <div class="max-w-sm p-6 mx-auto mt-10 border border-gray-200 shadow bg-primary rounded-2xl md:max-w-3xl">
+                {{-- <div class="max-w-sm p-6 mx-auto mt-10 border border-gray-200 shadow bg-primary rounded-2xl md:max-w-3xl">
                     <h5 class="mb-2 text-xl font-medium  text-white font-['Poppins'] tracking-[1px]">Input WhatsApp
                         Number:
                     </h5>
@@ -272,11 +275,9 @@
                             </div>
                         @enderror
                     </div>
-                </div>
+                </div> --}}
                 <!-- Card End [Payment Confirmation] -->
-                <button href="payment.html"
-                    class="block px-4 py-2 ml-auto mr-0 font-medium text-white transition-all duration-150 rounded-full bg-dark mt-7 hover:scale-95 font-['Poppins'] tracking-[1px]"
-                    type="submit">Continue</button>
+
         </section>
         <!-- Order End -->
     </form>

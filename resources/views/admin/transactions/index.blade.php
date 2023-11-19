@@ -68,7 +68,7 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body d-flex" style="justify-content: center">
-                                                                <img src="{{ $transaction->payment_evidence }}"
+                                                                <img src="{{ url('storage/' . $transaction->payment_evidence) }}"
                                                                     alt="">
                                                             </div>
                                                         </div>

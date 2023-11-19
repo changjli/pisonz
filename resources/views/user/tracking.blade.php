@@ -48,7 +48,7 @@
                 class="flex flex-wrap max-w-sm gap-5 p-6 mx-auto mt-10 border border-gray-200 shadow bg-primary rounded-2xl md:max-w-xl">
                 <main>
                     <h1 class="mb-2 text-2xl font-light tracking-tight text-white">Transaction Date</h1>
-                    <p class="font-bold text-white">{{ $transaction->created_at }}</p>
+                    <p class="font-bold text-white">{{ $transaction->created_at->diffForHumans() }}</p>
                 </main>
                 <main class="md:ml-5">
                     <h1 class="mb-2 text-2xl font-light tracking-tight text-white">Transaction ID</h1>
