@@ -54,31 +54,31 @@
     <!-- Games Start -->
     <section class="md:w-3/4 mx-auto md:mt-20 p-2" id="games">
         <div>
-            <h1 class="text-2xl font-bold text-primary my-2 font-['Poppins']">Games</h1>
-            <div class="w-full h-[.5px] bg-primary relative">
-                <div class="w-20 h-1 bg-primary absolute"></div>
-            </div>
+          <h1 class="text-2xl font-bold text-primary my-2 font-['Poppins']">Games</h1>
+          <div class="w-full h-[.5px] bg-primary relative">
+            <div class="w-20 h-1 bg-primary absolute"></div>
+          </div>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4">
-            @foreach ($games as $game)
-                <div class="overflow-hidden rounded-lg">
-                    <a href="/order/{{ $game->id }}">
-                        <img class="h-full max-w-full hover:scale-105 transition-transform" src="{{ $game->image }}"
-                            alt="{{ $game->name }}" />
-                    </a>
+          @foreach ($games as $game)
+            <div class="overflow-hidden rounded-lg">
+              <a href="/order/{{ $game->id }}">
+                <div class="relative overflow-hidden rounded-lg shadow hover:scale-105 transition-transform">
+                  <img alt="{{ $game->name }}" src="{{ $game->image }}" class="absolute inset-0 h-full w-full object-cover" />
+    
+                  <div class="relative bg-gradient-to-t from-gray-900/50 to-gray-900/25 pt-32 sm:pt-48 lg:pt-64">
+                    <div class="p-4 sm:p-6">
+                      <p class="mt-2 line-clamp-3 text-center font-bold text-lg/relaxed text-white/95">
+                        {{ $game->name }}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-            @endforeach
-
-            <div>
-                <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform"
-                    src="assets/games/compressed/cs.jpg" alt="cs" />
+              </a>
             </div>
-            <div>
-                <img class="h-auto max-w-full rounded-lg hover:scale-105 transition-transform"
-                    src="assets/games/compressed/cs.jpg" alt="cs" />
-            </div>
+          @endforeach
         </div>
-    </section>
+      </section>
     <!-- Games End -->
 
     {{-- About Start --}}
@@ -97,7 +97,7 @@
             <div class="kanan max-w-2xl md:mt-10 mt-3">
                 <h1 class="text-primary font-bold text-3xl font-['Poppins'] md:p-0 px-3">Pisonz Store</h1>
                 <p class="text-justify font-regular font-['Poppins'] md:p-0 px-3 mt-2">
-                    Selamat datang di Pisonz Store, tujuan terbaik untuk top up game mobile Anda. Kami hadir dengan layanan
+                    Selamat datang di Pisonz Store, tujuan terbaik untuk top up game Anda. Kami hadir dengan layanan
                     top up yang cepat, aman, dan efisien. Tim kami yang bersemangat berkomitmen untuk memberikan pengalaman
                     gaming yang tanpa ribet. Pilih Pisonz Store untuk top up yang mudah dan nikmati game favorit Anda dengan
                     lebih lancar.</p>

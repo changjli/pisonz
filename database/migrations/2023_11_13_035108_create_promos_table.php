@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('promo_code');
             $table->integer('discount');
-            $table->dateTime('startDate');
-            $table->dateTime('endDate');
+            $table->integer('quantity');
             $table->timestamps();
         });
     }

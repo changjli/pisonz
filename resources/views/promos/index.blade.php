@@ -27,8 +27,7 @@
                                         <th>Promo Id</th>
                                         <th>Promo Code</th>
                                         <th>Discount</th>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
+                                        <th>Quantity</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -38,8 +37,7 @@
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->promo_code }}</td>
                                         <td>{{ $item->discount }}%</td>
-                                        <td>{{ $item->startDate }}</td>
-                                        <td>{{ $item->endDate }}</td>
+                                        <td>{{ $item->quantity }}</td>
   
                                         <td>
                                             <a href="{{ url('/admin/promos/' . $item->id) }}" title="View Promo"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>

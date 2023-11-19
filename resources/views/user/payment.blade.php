@@ -21,7 +21,7 @@
         <section>
             <form action="/receipt" method="POST" enctype="multipart/form-data">
                 @csrf
-                <a href="{{ url()->previous() }}">back</a>
+                {{-- <a href="{{ url()->previous() }}">back</a> --}}
                 {{-- data dari halaman sebelumnya --}}
                 <input type="hidden" name="userId" value="{{ old('userId', $user_id) }}">
                 <input type="hidden" name="userNickname" value="{{ old('userNickname', $user_nickname) }}">
@@ -41,7 +41,7 @@
                 @endif
 
                 <h1 class="mt-8 font-bold text-slate-400">Detail</h1>
-                <h3>{{ $product->notes }} - {{ $product->Category->Game->name }} - {{ $total }}</h3>
+                <h3>{{ $product->notes }} - {{ $product->Category->Game->name }} - Rp. {{ $total }}</h3>
                 <div class="w-full h-1 my-3 bg-primary"></div>
 
                 <h1 class="font-bold text-slate-400">Payment Method</h1>

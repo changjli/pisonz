@@ -9,7 +9,9 @@
 </head>
 
 <body>
-    <img src="{{ url('assets/bglogo.png') }}" alt="">
+    <img src="{{ url('http://drive.google.com/uc?export=view&id=1dmQt04gKN_SqIMhBCcLn427T0ATY-DyM') }}" alt="" height="200" width="300">
+    <br>
+    <br>
     <div>
         Transaction ID : {{ $transaction->id }}
     </div>
@@ -23,7 +25,7 @@
         Product : {{ $transaction->Product->name }}
     </div>
     <div>
-        Price : {{ $transaction->total }}
+        Price : Rp. {{ $transaction->total }}
     </div>
     <div>
         Thank you for purchasing at Pisonz Store. Your transaction will be processed in 5-10 minutes. Please head to our

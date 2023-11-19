@@ -32,8 +32,7 @@ class PromoController extends Controller
         $request->validate([
             'promo_code' => 'required',
             'discount' => 'required',
-            'startDate' => 'required',
-            'endDate' => 'required',
+            'quantity' => 'required',
         ]);
 
         $input = $request->all();
@@ -70,8 +69,7 @@ class PromoController extends Controller
         $request->validate([
             'promo_code' => 'required',
             'discount' => 'required',
-            'startDate' => 'required',
-            'endDate' => 'required',
+            'quantity' => 'required',
         ]);
 
         $input = $request->all();

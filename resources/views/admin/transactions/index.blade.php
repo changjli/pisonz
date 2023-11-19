@@ -1,11 +1,11 @@
-@extends('categories.layout')
+@extends('admin.transactions.layout')
 @section('content')
-    <div class="category_container">
+    <div class="transaction_container">
         <div class="row" style="margin:20px;">
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h2>Transaction CRUD (Create, Read, Update and Delete)</h2>
+                        <h2>Transaction History</h2>
                     </div>
                     <div class="card-body">
                         <br />

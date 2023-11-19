@@ -20,15 +20,9 @@
           <div class="invalid-feedback">{{ $message }}</div>
         @enderror
         <br>
-        <label>Start Date</label></br>
-        <input type="datetime-local" name="startDate" id="startDate" class="form-control @error('startDate') is-invalid @enderror" value="{{ old('startDate', $promos->startDate) }}">
-        @error('startDate')
-          <div class="invalid-feedback">{{ $message }}</div>
-        @enderror
-        <br>
-        <label>End Date</label></br>
-        <input type="datetime-local" name="endDate" id="endDate" class="form-control @error('endDate') is-invalid @enderror" value="{{ old('endDate', $promos->endDate) }}">
-        @error('endDate')
+        <label>Quantity</label></br>
+        <input type="number" name="quantity" id="quantity" class="form-control @error('quantity') is-invalid @enderror" value="{{ old('quantity', $promos->quantity) }}">
+        @error('quantity')
           <div class="invalid-feedback">{{ $message }}</div>
         @enderror
         <br>

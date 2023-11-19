@@ -48,6 +48,15 @@ class FrontController extends Controller
 
         if ($request->promo) {
             $rules['promo'] = 'exists:promos,promo_code';
+            $promo = Promo::where('promo_code', $request->promo)->first();
+
+            if ($promo != '') {
+                if ($promo->quantity <= 0) {
+                    $rules['promo'] = function ($attribute, $value, $fail) use ($promo) {
+                        $fail("The Promo has expired");
+                    };
+                }
+            }
         }
 
         $validator = Validator::make($request->all(), $rules);
@@ -94,14 +103,16 @@ class FrontController extends Controller
         }
 
         $total = $request->total;
-        if ($request->promo) {
-            $discount = Promo::where('promo_code', $request->promo)->first();
-            $total = $total - $total * $discount;
-        }
+        // if ($request->promo) {
+        //     $promo = Promo::where('promo_code', $request->promo)->first();
+        //     $discount = $promo->discount;
+        //     $total = $total - (($total * $discount) / 100);
+        //     dd($total);
+        // }
 
         $id = IdGenerator::generate(['table' => 'transactions', 'length' => 6, 'prefix' => 'TR']);
 
-        $transaction = Transaction::create([
+        if ($transaction = Transaction::create([
             'id' => $id,
             'user_id' => $request->userId,
             'user_nickname' => $request->userNickname,
@@ -112,7 +123,12 @@ class FrontController extends Controller
             'total' => $total,
             'payment_evidence' => $payment_evidence,
             'status' => 'pending',
-        ]);
+        ])) {
+            if ($request->promo) {
+                $promo = Promo::where('promo_code', $request->promo)->first();
+                Promo::where('promo_code', $promo->promo_code)->decrement('quantity', 1);
+            }
+        }
 
         if ($request->email != '') {
             // email
