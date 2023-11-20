@@ -28,9 +28,16 @@ class DatabaseSeeder extends Seeder
 
         // user 
         User::create([
-            'name' => 'Admin',
+            'name' => 'admin',
             'email' => 'pisonzstore@gmail.com',
-            'password' => 'Jonasganteng123',
+            'password' => '$2a$12$viqbP.jhPVbLowo1.BZKce5sfOAJEDt6Z62OZ73dL.oc8TCogVeDy',
+            'status' => 'super',
+        ]);
+
+        User::create([
+            'name' => 'sondy',
+            'email' => 'sondy@gmail.com',
+            'password' => '$2a$12$s2aknWuoVldyJ2seNOmMT.9uPUebdq5rT5mlV9Jsn8EHFqJXWxeWK',
             'status' => 'super',
         ]);
 
