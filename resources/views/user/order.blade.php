@@ -1,7 +1,7 @@
 @extends('user.layout')
 
 @section('container')
-    <form action="/payment" method="get">
+    <form action="/payment" method="GET">
         @csrf
         <!-- Order Start -->
         <section class="p-3 mx-auto mt-5 md:w-3/4 md:mt-20">

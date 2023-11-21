@@ -76,7 +76,12 @@ class FrontController extends Controller
         ]);
     }
 
-    public function receipt(Request $request)
+    public function receipt()
+    {
+        return view('user.receipt');
+    }
+
+    public function proccessPayment(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'payment_evidence' => 'required|image|file|max:1024',
@@ -154,8 +159,10 @@ class FrontController extends Controller
         //     }
         // }
 
-        return view('user.receipt', [
-            'transaction' => $transaction,
-        ]);
+        // return view('user.receipt', [
+        //     'transaction' => $transaction,
+        // ]);
+
+        return redirect('/receipt')->with('transaction', $transaction);
     }
 }

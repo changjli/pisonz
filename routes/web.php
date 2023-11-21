@@ -62,6 +62,8 @@ Route::get('/order/{game}', [FrontController::class, 'order']);
 
 Route::get('/payment', [FrontController::class, 'payment']);
 
-Route::post('/receipt', [FrontController::class, 'receipt']);
+Route::post('/payment', [FrontController::class, 'proccessPayment']);
+
+Route::get('/receipt', [FrontController::class, 'receipt']);
 
 Route::get('/tracking', [TransactionController::class, 'tracking']);
